@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Notion</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #00050e;
+  }
+  canvas {
+    display: block;
+    margin: auto;
+  }
+</style>
+</head>
+<body>
+
+<canvas id="adCanvas"></canvas>
+
+<script>
+const canvas = document.getElementById("adCanvas");
+const ctx = canvas.getContext("2d");
+
+function resize() {
+  canvas.width = 1200;
+  canvas.height = 650;
+  drawAd();
+}
+
+resize();
+
+function drawAd() {
+
+  const bg = ctx.createLinearGradient(0,0,canvas.width,canvas.height);
+  bg.addColorStop(0,"#2563eb");
+  bg.addColorStop(1,"#f97316");
+  ctx.fillStyle = bg;
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+
+  const x = 80, y = 60, w = 1040, h = 530;
+  ctx.fillStyle = "#fff";
+  ctx.shadowColor = "rgba(0,0,0,0.25)";
+  ctx.shadowBlur = 30;
+  ctx.fillRect(x,y,w,h);
+  ctx.shadowBlur = 0;
+
+  ctx.fillStyle = "#fff";
+  ctx.fillRect(x,y,w,70);
+
+  ctx.fillStyle = "#000";
+  ctx.font = "bold 22px Arial";
+  ctx.fillText("Motion", x + 40, y + 45);
+
+  ctx.font = "14px Arial";
+  ctx.fillText("Product", x + 160, y + 45);
+  ctx.fillText("Templates", x + 230, y + 45);
+  ctx.fillText("Pricing", x + 320, y + 45);
+  ctx.fillText("Blog", x + 380, y + 45);
+
+  ctx.fillStyle = "#000";
+  ctx.fillRect(x + w - 140, y + 20, 110, 36);
+  ctx.fillStyle = "#fff";
+  ctx.font = "bold 14px Arial";
+  ctx.fillText("Get Started", x + w - 118, y + 45);
+
+  ctx.fillStyle = "#000";
+  ctx.font = "bold 58px Arial";
+  ctx.fillText("Build", x + 60, y + 180);
+  ctx.fillText("something", x + 60, y + 250);
+  ctx.fillText("beautiful.", x + 60, y + 320);
+
+  ctx.font = "18px Arial";
+  ctx.fillStyle = "#555";
+  ctx.fillText("Motion helps you and your team get more done", x + 60, y + 360);
+  ctx.fillText("with less stress.", x + 60, y + 390);
+
+  // buttons
+  ctx.fillStyle = "#3b82f6";
+  ctx.fillRect(x + 60, y + 430, 150, 46);
+  ctx.fillStyle = "#fff";
+  ctx.font = "bold 16px Arial";
+  ctx.fillText("Get Started", x + 92, y + 460);
+
+  ctx.strokeStyle = "#ccc";
+  ctx.strokeRect(x + 230, y + 430, 170, 46);
+  ctx.fillStyle = "#000";
+  ctx.fillText("See Templates", x + 258, y + 460);
+
+  ctx.font = "16px Arial";
+  ctx.fillStyle = "#999";
+  ctx.fillText("airbnb", x + 60, y + 510);
+  ctx.fillText("NETFLIX", x + 150, y + 510);
+  ctx.fillText("asana", x + 260, y + 510);
+  ctx.fillText("Figma", x + 340, y + 510);
+
+  ctx.strokeStyle = "#000";
+  ctx.lineWidth = 2;
+  ctx.strokeRect(x + w - 420, y + 150, 300, 260);
+
+  ctx.beginPath();
+  ctx.arc(x + w - 320, y + 260, 22, 0, Math.PI * 2);
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.moveTo(x + w - 320, y + 282);
+  ctx.lineTo(x + w - 320, y + 330);
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.moveTo(x + w - 350, y + 300);
+  ctx.lineTo(x + w - 290, y + 300);
+  ctx.stroke();
+}
+
+</script>
+
+</body>
+</html>
